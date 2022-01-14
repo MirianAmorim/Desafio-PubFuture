@@ -23,7 +23,7 @@ model Receita {
   dataRecEsp    DateTime
   descricao     String
   tipo          String
-  contaid       Conta[]             @relation(fields: [contaid], references: [id])
+  contaid       Conta               @relation(fields: [contaid], references: [id])
 }
 
 model Despesa {
@@ -32,7 +32,7 @@ model Despesa {
   dataPag       DateTime
   dataPagEsp    DateTime
   tipo          String
-  contaid       Conta[]             @relation(fields: [contaid], references: [id])
+  contaid       Conta               @relation(fields: [contaid], references: [id])
 }
 
 model Saldo {
