@@ -12,6 +12,10 @@ model Conta {
   createdAt  DateTime @default(now()) @map("created_at")
   instFinanc String
   tipo       String
+  despesaid  Int
+  receitaid  Int
+  despesa    Despesa  @relation(fields: [despesaid], references: [id])
+  receita    Receita  @relation(fields: [receitaid], references: [id])
 }
 
 model Receita {
