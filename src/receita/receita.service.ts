@@ -3,7 +3,6 @@ import { CreateReceitaDto } from './dto/create-receita.dto';
 import { UpdateReceitaDto } from './dto/update-receita.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import { Receita, Prisma } from '@prisma/client';
-import * as bcrypt from 'bcrypt';
 import { PrismaModule } from 'src/prisma/prisma.module';
 
 @Injectable()
