@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 DesafioPubFuture-Mirian Amorim
 Projeto para o Desafio PubFuture
 
@@ -19,3 +20,4 @@ npx prisma db push
 Utilizando o comando a seguir, é possivel utilizar uma versão grafica do prisma para manipular os dados do banco:
 
 npx prisma studio
+
