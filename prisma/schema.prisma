@@ -5,36 +5,34 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  password = env("SECRETKEY")
 }
 
 model Conta {
-  id            Int                 @id @default(autoincrement())            
-  createdAt     DateTime            @default(now()) @map("created_at")
-  instFinanc    String
-  tipo          String
-  receitaid  Int
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now()) @map("created_at")
+  instFinanc String
+  tipo       String
   despesaid  Int
-  despesa       Despesa              @relation(fields: [despesaid], references: [id])
-  receita       Receita              @relation(fields: [receitaid], references: [id])
+  receitaid  Int
+  despesa    Despesa  @relation(fields: [despesaid], references: [id])
+  receita    Receita  @relation(fields: [receitaid], references: [id])
 }
 
 model Receita {
-  id            Int                 @id @default(autoincrement())
-  valor         Int
-  dataRec       DateTime
-  dataRecEsp    DateTime
-  descricao     String
-  tipo          String
-  conta         Conta[]              
+  id         Int      @id @default(autoincrement())
+  valor      Int
+  dataRec    DateTime
+  dataRecEsp DateTime
+  descricao  String
+  tipo       String
+  conta      Conta[]
 }
 
 model Despesa {
-  id            Int                 @id @default(autoincrement())
-  valor         Int
-  dataPag       DateTime
-  dataPagEsp    DateTime
-  tipo          String
-  conta         Conta[]
+  id         Int      @id @default(autoincrement())
+  valor      Int
+  dataPag    DateTime
+  dataPagEsp DateTime
+  tipo       String
+  conta      Conta[]
 }
-
