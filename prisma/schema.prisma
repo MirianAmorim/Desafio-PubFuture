@@ -23,7 +23,7 @@ model Receita {
   dataRecEsp    DateTime
   descricao     String
   tipo          String
-  contaid       Conta               @relation(fields: [contaid], references: [id])
+  contaid       Conta[]             @relation(fields: [contaid], references: [id])
 }
 
 model Despesa {
@@ -32,14 +32,14 @@ model Despesa {
   dataPag       DateTime
   dataPagEsp    DateTime
   tipo          String
-  contaid       Conta               @relation(fields: [contaid], references: [id])
+  contaid       Conta[]             @relation(fields: [contaid], references: [id])
 }
 
 model Saldo {
   receitaid    Int
   despesaid    Int
-  despesa      Despesa               @relation(fields: [despesaid], references: [id])
-  receita      Receita               @relation(fields: [receitaid], references: [id])
+  despesa      Despesa[]            @relation(fields: [despesaid], references: [id])
+  receita      Receita[]            @relation(fields: [receitaid], references: [id])
   @@id([receitaid, despesaid])
 }
 
@@ -47,7 +47,7 @@ model Tranferencia {
   saldoid      Int
   contaid      Int
   assignedAt   DateTime              @default(now())
-  saldo        Saldo                 @relation(fields: [saldoid], references: [id])
-  conta        Conta                 @relation(fields: [contaid], references: [id])
+  saldo        Saldo[]               @relation(fields: [saldoid], references: [id])
+  conta        Conta[]               @relation(fields: [contaid], references: [id])
   @@id([saldoid, contaid])
 }
