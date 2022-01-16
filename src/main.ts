@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors();
   const config = new DocumentBuilder()
-    .setTitle('API Desafio PubFuture')
+    .setTitle('API')
     .setDescription('API de finanças pessoais com conta, receita e despesa.')
     .setVersion('1.0')
     .build();
