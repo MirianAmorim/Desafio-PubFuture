@@ -9,11 +9,14 @@ datasource db {
 }
 
 model Conta {
-  id            Int                 @id @default(autoincrement())
-  saldo         Saldo[]              
+  id            Int                 @id @default(autoincrement())            
   createdAt     DateTime            @default(now()) @map("created_at")
   instFinanc    String
   tipo          String
+  receitaid  Int
+  despesaid  Int
+  despesa       Despesa              @relation(fields: [despesaid], references: [id])
+  receita       Receita              @relation(fields: [receitaid], references: [id])
 }
 
 model Receita {
@@ -23,7 +26,7 @@ model Receita {
   dataRecEsp    DateTime
   descricao     String
   tipo          String
-  conta         Conta[]               
+  conta         Conta[]              
 }
 
 model Despesa {
@@ -35,10 +38,3 @@ model Despesa {
   conta         Conta[]
 }
 
-model Saldo {
-  receitaid    Int
-  despesaid    Int
-  despesa      Despesa              @relation(fields: [despesaid], references: [id])
-  receita      Receita              @relation(fields: [receitaid], references: [id])
-  @@id([receitaid, despesaid])
-}
