@@ -8,12 +8,4 @@ export class CreateContaDto {
   @IsNotEmpty()
   @IsString()
   tipo: string;
-  
-  @IsNotEmpty()
-  @IsString()
-  despesaid: number;
- 
-  @IsNotEmpty()
-  @IsInt()
-  receitaid: number;
 }
