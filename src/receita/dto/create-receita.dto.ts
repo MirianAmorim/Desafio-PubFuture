@@ -1,19 +1,23 @@
 import { IsInt, IsNotEmpty, IsString } from 'class-validator';
 
-export class CreateContaDto {
+export class CreateReceitaDto {
   @IsNotEmpty()
   @IsString()
-  instFinanc: string;
+  valor: number;
   
   @IsNotEmpty()
   @IsString()
-  tipo: string;
+  dataRec: string;
   
   @IsNotEmpty()
   @IsString()
-  despesaid: number;
+  dataRecEsp: string;
+
+  @IsNotEmpty()
+  @IsString()
+  descricao: string;
  
   @IsNotEmpty()
   @IsInt()
-  receitaid: number;
+  tipo: string;
 }
